@@ -1,0 +1,36 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "techintnetsa",
+	"main": "./src/llms-txt-worker/index.ts",
+	"compatibility_date": "2025-10-08",
+	"compatibility_flags": ["nodejs_compat"],
+	"upload_source_maps": true,
+	"observability": {
+		"enabled": true
+	},
+	"assets": {
+		"directory": "./dist/client",
+		"not_found_handling": "single-page-application",
+		"run_worker_first": ["/api", "/api/*", "/llms.txt", "/llms-full.txt"]
+	},
+	"ai": {
+		"binding": "AI"
+	},
+	"kv_namespaces": [
+		{
+			"binding": "ENRICHMENT_CACHE",
+			"id": "be3e00f3304f4e0f9d85c00c3a80742d"
+		}
+	],
+	"vars": {
+		"MERCHANT_NAME": "TECHINTNET ",
+		"MERCHANT_DESCRIPTION": "Product catalog powered by Commerce llms.txt",
+		"STORE_CURRENCY": "USD",
+		"SHIPPING_POLICY": "حسب الطلب ",
+		"RETURN_POLICY": "حسب المنتج",
+		"SHOPIFY_STORE_DOMAIN": "TECHINTNET.myshopify.com",
+		"MERCHANT_VERTICAL": "general retail",
+		"ENRICHMENT_CACHE_TTL": "3600",
+		"AI_MODEL": "@cf/google/gemma-4-26b-a4b-it"
+	}
+}
